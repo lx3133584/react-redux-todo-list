@@ -1,7 +1,10 @@
 import React from 'react';
 import Item from './item';
-export default function({ list, addTodo }) {
+export default function({ visibleTodos, completeTodos }) {
+  function handlerClick(index) {
+    return () => completeTodos(index)
+  }
   return <ul>
-    {list.map(i => <Item addTodo={addTodo} {...i}></Item>)}
+    {visibleTodos.map((i, index) => <Item completeTodo={handlerClick(index)} {...i} key={index}></Item>)}
   </ul>
 }

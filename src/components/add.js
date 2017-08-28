@@ -5,10 +5,10 @@ export default class extends Component {
     this.handlerClick = this.handlerClick.bind(this)
   }
   handlerClick() {
-    let value = this.refs.input.value
-    let text = value.trim()
-    this.props.addTodo(text)
-    value = ''
+    let el = this.refs.input
+    let text = el.value.trim()
+    this.props.addTodos(text)
+    el.value = ''
   }
   render() {
     return <div>
